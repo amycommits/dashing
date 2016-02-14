@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Accession number:</strong>
+  <%= @action_item.accession_number %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @action_item.description %>
+</p>
+
+<p>
+  <strong>Action number:</strong>
+  <%= @action_item.action_number %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= Project.find(@action_item.project) %>
+</p>
+
+<%= link_to 'Edit', edit_action_item_path(@action_item) %> |
+<%= link_to 'Back', action_items_path %>

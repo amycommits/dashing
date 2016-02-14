@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Action Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Accession number</th>
+      <th>Description</th>
+      <th>Action number</th>
+      <th>Total Actions</th>
+      <th>Project</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @action_items.each do |action_item| %>
+      <tr>
+        <td><%= action_item.accession_number %></td>
+        <td><%= action_item.description %></td>
+        <td><%= action_item.action_number %></td>
+        <td><%= action_item.total_action %></td>
+        <td><%= action_item.project %></td>
+        <td><%= link_to 'Show', action_item %></td>
+        <td><%= link_to 'Edit', edit_action_item_path(action_item) %></td>
+        <td><%= link_to 'Destroy', action_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% @projects.each do |p| %>
+	<p><%=p.title%></p>
+<% end -%>
+
+<div>
+<%= @action_info.to_json %>
+</div>
+<br>
+
+<%= link_to 'New Action item', new_action_item_path %>
