@@ -3,7 +3,7 @@
 <title>Dashing D3 Array examples</title>
 <script>
 var easyArray= [3,5,8,13,8,5,3,-2,0,5];
-
+var tinyArray= [4,5];
 
 </script>
 
@@ -11,25 +11,18 @@ var easyArray= [3,5,8,13,8,5,3,-2,0,5];
 </head>
 <body>
 <h1>D3 arrays </h1>
-<div>
-	var easyArray= [3,5,8,13,8,5,3,-2,0,5];
-</div>
-<div>
-	easyArray;
-</div>
-<div>
-	easyArray.reverse();
-</div>
+<h3>video 6 </h3>
 
+<h2>Basic Javascript Mutators </h2>
 <table>
-<th>
-	<td>javascript function </td>
-	<td> output </td>
-	<td> explanation </td>
-</th>
+<tr>
+	<th>javascript function </th>
+	<th> output </th>
+	<th> explanation </th>
+</tr>
 <tr>
 	<td>var easyArray= [3,5,8,13,8,5,3,-2,0,5];</td>
-	<td>[3,5,8,13,8,5,3,-2,0,5];<</td>
+	<td>[3,5,8,13,8,5,3,-2,0,5];</td>
 	<td>defines array</td>
 </tr>
 <tr>
@@ -77,20 +70,82 @@ var easyArray= [3,5,8,13,8,5,3,-2,0,5];
         <td>[10, 11, 15, -2, 0, 12, 8]</td>
         <td>adds to the left of the array</td>
 </tr>
+</table>
+
+<h2>JS accessor methods</h2>
+<table>
 <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>javascript function </th>
+        <th> output </th>
+        <th> explanation </th>
 </tr>
 <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>var tinyArray=[4,5];</td>
+        <td>[4,5]</td>
+        <td>easy array and tiny array are used</td>
 </tr>
 <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>easyArray.concat(tinyArray);</td>
+        <td>[3, 5, 8, 13, 8, 5, 3, -2, 0, 5, 4, 5]</td>
+        <td>adds the info from the tinyArray to the right of the easyArray.</td>
+</tr>
+<tr>
+        <td>easyArray.join()</td>
+        <td>"3,5,8,13,8,5,3,-2,0,5"</td>
+        <td>joins as string, doesn't actually change the underlying array</td>
+</tr>
+<tr>
+        <td>easyArray.slice(1,4)</td>
+        <td>[5, 8, 13]</td>
+        <td>extracts section of the array, not including the first number, second number is the position in the array not number from the first number</td>
+</tr>
+<tr>
+        <td>easyArray.indexOf(13)</td>
+        <td> 3 </td>
+        <td>returns the zero based index of the first occurance in the array</td>
+</tr>
+<tr>
+        <td>easyArray.lastIndexOf(3)</td>
+        <td>6</td>
+        <td>returns the zero based index of the last occurance of the value in the array</td>
+</tr>
+</table>
+<h2>Basic D3 array utilities</h2>
+<table>
+<tr>
+        <th>javascript function </th>
+        <th> output </th>
+        <th> explanation </th>
+</tr>
+<tr>
+        <td>d3.min(easyArray)</td>
+        <td>-2</td>
+        <td>returns minimum value</td>
+</tr>
+<tr>
+        <td>d3.max(easyArray)</td>
+        <td>13</td>
+        <td>returns maximum value in array</td>
+</tr>
+<tr>
+        <td>d3.extent(easyArray)</td>
+        <td>[-2,13]</td>
+        <td>range of array</td>
+</tr>
+<tr>
+        <td>d3.sum(easyArray)</td>
+        <td>48</td>
+        <td>sum of the array</td>
+</tr>
+<tr>
+        <td>d3.mean</td>
+        <td>4.8</td>
+        <td>average</td>
+</tr>
+<tr>
+        <td>d3.median</td>
+        <td>5</td>
+        <td>median</td>
 </tr>
 </table>
 </body>
