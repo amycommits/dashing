@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Dashing D3 Array examples</title>
+<script>
+var easyArray= [3,5,8,13,8,5,3,-2,0,5];
+
+
+</script>
+
+
+</head>
+<body>
+<h1>D3 arrays </h1>
+<div>
+	var easyArray= [3,5,8,13,8,5,3,-2,0,5];
+</div>
+<div>
+	easyArray;
+</div>
+<div>
+	easyArray.reverse();
+</div>
+
+<table>
+<th>
+	<td>javascript function </td>
+	<td> output </td>
+	<td> explanation </td>
+</th>
+<tr>
+	<td>var easyArray= [3,5,8,13,8,5,3,-2,0,5];</td>
+	<td>[3,5,8,13,8,5,3,-2,0,5];<</td>
+	<td>defines array</td>
+</tr>
+<tr>
+        <td>easyArray;</td>
+        <td>[3,5,8,13,8,5,3,-2,0,5];</td>
+        <td>calls the array</td>
+</tr>
+<tr>
+        <td>easyArray.reverse();</td>
+        <td>[5, 0, -2, 3, 5, 8, 13, 8, 5, 3]</td>
+        <td>permanently reverses the array</td>
+</tr>
+<tr>
+        <td>easyArray.shift()</td>
+        <td>5</td>
+        <td>deletes the 0 spot of the array, shifts everything left by 1</td>
+</tr>
+<tr>
+        <td>easyArray;</td>
+        <td>[0, -2, 3, 5, 8, 13, 8, 5, 3]</td>
+        <td></td>
+</tr>
+<tr>
+        <td>easyArray.sort();</td>
+        <td>[-2, 0, 13, 3, 3, 5, 5, 8, 8]</td>
+        <td>sorts smalles to largest</td>
+</tr>
+<tr>
+        <td>easyArray.splice(2,4);</td>
+        <td>removes: [13, 3, 3, 5] remaining: [-2, 0, 5, 8, 8]</td>
+        <td>starts at index 2, removes 4 elements</td>
+</tr>
+<tr>
+        <td>easyArray.splice(2,0,4);</td>
+        <td>[-2, 0, 4, 5, 8, 8]</td>
+        <td>adds the number 4 after the second element</td>
+</tr>
+<tr>
+        <td>easyArray.splice(2,3,12);</td>
+        <td>[-2, 0, 12, 8]</td>
+        <td>deletes 3 elements after the second element, and inputs the number 12</td>
+</tr>
+<tr>
+        <td>easyArray.unshift(10,11,15)</td>
+        <td>[10, 11, 15, -2, 0, 12, 8]</td>
+        <td>adds to the left of the array</td>
+</tr>
+<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+</tr>
+<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+</tr>
+<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+</tr>
+</table>
+</body>
+</html>

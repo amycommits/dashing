@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dashing_d3_examples
+  resources :user_stories
   resources :action_items
   resources :projects
   # The priority is based upon order of creation: first created -> highest priority.
@@ -6,9 +8,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-    root 'action_items#index'
+  #  root 'action_items#index'
+    root 'dashing_d3_examples#index'
 
-  # Example of regular route:
+  # Matching the d3 examples in route
+    get '/arrays', to: 'dashing_d3_examples#arrays'  
+# Example of regular route:
   #   get 'products/:id' => 'catalog#view'
       get 'all_actions' => 'action_items#all_actions'
   # Example of named route that can be invoked with purchase_url(id: product.id)
@@ -16,8 +21,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
-  # Example resource route with options:
+  
+# Example resource route with options:
   #   resources :products do
   #     member do
   #       get 'short'

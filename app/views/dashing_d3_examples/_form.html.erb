@@ -1,0 +1,69 @@
+<%= form_for(@dashing_d3_example) do |f| %>
+  <% if @dashing_d3_example.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dashing_d3_example.errors.count, "error") %> prohibited this dashing_d3_example from being saved:</h2>
+
+      <ul>
+      <% @dashing_d3_example.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :cx %><br>
+    <%= f.number_field :cx %>
+  </div>
+  <div class="field">
+    <%= f.label :cy %><br>
+    <%= f.number_field :cy %>
+  </div>
+  <div class="field">
+    <%= f.label :x %><br>
+    <%= f.number_field :x %>
+  </div>
+  <div class="field">
+    <%= f.label :y %><br>
+    <%= f.number_field :y %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br>
+    <%= f.number_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :radius %><br>
+    <%= f.number_field :radius %>
+  </div>
+  <div class="field">
+    <%= f.label :action_number %><br>
+    <%= f.number_field :action_number %>
+  </div>
+  <div class="field">
+    <%= f.label :total_action %><br>
+    <%= f.number_field :total_action %>
+  </div>
+  <div class="field">
+    <%= f.label :elapsed_days %><br>
+    <%= f.number_field :elapsed_days %>
+  </div>
+  <div class="field">
+    <%= f.label :total_days %><br>
+    <%= f.number_field :total_days %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

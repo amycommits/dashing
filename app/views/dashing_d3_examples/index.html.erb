@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dashing D3 Examples</h1>
+<%= link_to "Arrays","/arrays" %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Cx</th>
+      <th>Cy</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Radius</th>
+      <th>Action number</th>
+      <th>Total action</th>
+      <th>Elapsed days</th>
+      <th>Total days</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dashing_d3_examples.each do |dashing_d3_example| %>
+      <tr>
+        <td><%= dashing_d3_example.name %></td>
+        <td><%= dashing_d3_example.title %></td>
+        <td><%= dashing_d3_example.cx %></td>
+        <td><%= dashing_d3_example.cy %></td>
+        <td><%= dashing_d3_example.x %></td>
+        <td><%= dashing_d3_example.y %></td>
+        <td><%= dashing_d3_example.width %></td>
+        <td><%= dashing_d3_example.height %></td>
+        <td><%= dashing_d3_example.radius %></td>
+        <td><%= dashing_d3_example.action_number %></td>
+        <td><%= dashing_d3_example.total_action %></td>
+        <td><%= dashing_d3_example.elapsed_days %></td>
+        <td><%= dashing_d3_example.total_days %></td>
+        <td><%= link_to 'Show', dashing_d3_example %></td>
+        <td><%= link_to 'Edit', edit_dashing_d3_example_path(dashing_d3_example) %></td>
+        <td><%= link_to 'Destroy', dashing_d3_example, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dashing d3 example', new_dashing_d3_example_path %>

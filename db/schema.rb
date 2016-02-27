@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213235232) do
+ActiveRecord::Schema.define(version: 20160227163348) do
 
   create_table "action_items", force: :cascade do |t|
     t.integer  "accession_number"
@@ -25,11 +25,37 @@ ActiveRecord::Schema.define(version: 20160213235232) do
 
   add_index "action_items", ["project_id"], name: "index_action_items_on_project_id"
 
+  create_table "dashing_d3_examples", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.integer  "cx"
+    t.integer  "cy"
+    t.integer  "x"
+    t.integer  "y"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "radius"
+    t.integer  "action_number"
+    t.integer  "total_action"
+    t.integer  "elapsed_days"
+    t.integer  "total_days"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.integer  "accession_number"
     t.string   "title"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "user_stories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
