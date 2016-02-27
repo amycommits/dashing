@@ -1,0 +1,61 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Adding DOM Elements </h1>
+<h3>Video 7 </h3>
+
+<h2> d3.append() </h2>
+<p>
+d3.select("body").append("hr");
+</p>
+<ul>
+	<li>one</li>
+	<li>two></li>
+	<li>three</li>
+</ul>
+
+<p>
+d3.select("ul").append("hr");
+</p>
+<p>
+d3.selectAll("li").append("hr");
+</p>
+
+<h2>d3.insert(name,(before));</h2>
+<div id="this">this div</div>
+<div id="that">that div</div>
+<div class="outer-div"><div class="inner-div">inner div</div> outer div </div>
+<p>
+d3.select("body").insert("hr");
+</p>
+<p>
+d3.select("body").insert("hr","div");
+</p>
+<p>
+  d3.select("ul").insert("hr",":first-child");
+</p>
+<p>
+  d3.select(".outer-div").insert("hr",".inner-div");
+</p>
+<p>
+ Note, if it is not withing the selection scope it will be inserted at the end of the selection. If the selection doesn't exist, nothing is inserted/appended
+</p>
+
+<h2>d3 remove() </h2>
+<p>
+  d3.select("#that").remove();
+</p>
+</body>
+<script>
+d3.select("body").append("hr");
+d3.select("ul").append("hr");
+d3.selectAll("li").append("hr");
+d3.select("body").insert("hr");
+d3.select("body").insert("hr","div")
+d3.select("ul").insert("hr",":first-child");
+d3.select(".outer-div").insert("hr",".inner-div");
+d3.select("#that").remove();
+
+</script>
+</html>
