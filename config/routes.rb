@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get '/arrays', to: 'dashing_d3_examples#arrays'  
     get '/adding_dom_elements',to: 'dashing_d3_examples#adding_dom_elements'
     get '/svg_fundamentals',to: 'dashing_d3_examples#svg_fundamentals'
+    get '/adding_svg_elements',to: 'dashing_d3_examples#adding_svg_elements'
 # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
       get 'all_actions' => 'action_items#all_actions'

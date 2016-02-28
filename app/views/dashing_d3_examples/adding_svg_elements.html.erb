@@ -1,0 +1,34 @@
+<html>
+<body>
+	<h1>Adding SVG Elements</h1>
+	<h3> Video 9 </h3>
+	<div>d3.selection.append.(name)</div>
+	<div>d3.selection.attr(name[,value]);</div>
+	<div>only one attr at a time, so you will need to use poin notation</div>
+	<h2>examples</h2>
+		<div>d3.select(".svg_by_d3").append("svg").attr("width","50").attr("height","50");</div>
+		<div>d3.select(".svg_by_d3").select("svg").append("circle").attr("cx","25").attr("cy","25").attr("r","25").attr("fill","red").attr("class","first_circle");</div>
+	<div class="svg_by_d3"></div>
+	<h2>Style operator D3, instead of setting the fill using the attr. use style. </h2>
+		<div class="svg_with_style"></div>
+		<div>works better with external css </div>
+	<h2>Assigning svg elements to js variables</h2>
+		<div class="svg_with_js_variables"></div>
+		var divSelection = d3.select(".svg_with_js_variables"); <p/>
+	var svgSelection = divSelection.append("svg").attr("width","50").attr("height","50");<p/>
+	var circleSelection = svgSelection.append("circle").attr("cx","25").attr("cy","25").attr("r","25").style("fill","purple")
+
+</body>
+<script>
+	d3.select(".svg_by_d3").append("p");
+	d3.select("p").remove("p");
+	d3.select(".svg_by_d3").append("svg").attr("width","50").attr("height","50");
+	d3.select(".svg_by_d3").select("svg").append("circle").attr("cx","25").attr("cy","25").attr("r","25").attr("fill","red").attr("class","first_circle");
+	d3.select(".svg_with_style").append("svg").attr("width","50").attr("height","50").append("circle").attr("cx","25").attr("cy","25").attr("r","25").style("fill","red")
+
+	//using variables
+	var divSelection = d3.select(".svg_with_js_variables");
+	var svgSelection = divSelection.append("svg").attr("width","50").attr("height","50");
+	var circleSelection = svgSelection.append("circle").attr("cx","25").attr("cy","25").attr("r","25").style("fill","purple")
+</script>
+</html>
