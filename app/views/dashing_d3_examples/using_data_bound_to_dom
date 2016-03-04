@@ -1,0 +1,12 @@
+<html>
+<head>
+</head>
+<body>
+<h1>using data bound to DOM elements</h1>
+<h3>Video 14</h3>
+<h2>the data(), returns an array of the bound elements</h2>
+</body>
+<script>
+
+</script>
+</html>

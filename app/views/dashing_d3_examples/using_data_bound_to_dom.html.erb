@@ -1,0 +1,69 @@
+<html>
+<head>
+</head>
+<body>
+<h1>using data bound to DOM elements</h1>
+<h3>Video 14</h3>
+<h2>the data(), returns an array of the bound elements</h2>
+var manyPData = d3.select("body").selectAll("p").data([9,0,2,1,0]).enter().append("p");<div/>
+manyPData;<div/>
+manyPData.data();<div/>
+firstP;<div/>
+firstP.data();<div/>
+
+<h2>Text Operator</h2>
+d3.selection.text([value]); <div/>
+var textData = d3.select("body").selectAll("span").data([1]).enter().append("span"); <div/>
+	textData.text("Span Span Span Spannity Span Spannity Span"); <div/>
+
+<div id="multispan"></div>
+
+<h2>JS functions in D3 Operators </h2>
+<div id="JSexample"></div>
+<div id="anonExample"></div>
+<div id="JSotherExample"></div>
+
+<h2>Variables available inside D3 Operators </h2>
+<ul>
+<li>d - the ___data___ property</li>
+<li>i - the element index</li>
+<li>this - the DOM reference to the element in question</li>
+</ul>
+<div id="operatorExample"></div>
+  var opExample = d3.select("body").select("#operatorExample").data([1,2,3,4,5,7]).enter().append("p"); <div/>
+
+    opExample.text(
+    		function(d, i ) {
+    			return "d var: " + d + " index: " + i ;
+     		});
+
+</body>
+<script type="text/javascript">
+	//alert("works");
+	var manyPData = d3.select("body").selectAll("p").data([9,0,2,1,0]).enter().append("p");
+	var firstP = d3.select("p");
+
+	var textData = d3.select("body").selectAll("span").data([1]).enter().append("span");
+	textData.text("Span Span Span Spannity Span Spannity Span");
+
+	var textData = d3.select("body").select("#multispan").selectAll("span").data([1,2,3,4,5,7]).enter().append("span");
+	textData.text("Span Span Span Spannity Span Spannity Span");
+
+	var textVal = d3.select("body").select("#JSexample").data([1,2,3,4,5,7]).enter().append("p");
+	function firstTextFunction(){
+		return "function string";
+	};
+	textVal.text(firstTextFunction());
+
+    //same, but with an anonymous function
+    var anonVal = d3.select("body").select("#anonExample").data([1,2,3,4,5,7]).enter().append("p");
+    anonVal.text( function() {return "anon function"});
+
+    var opExample = d3.select("body").select("#operatorExample").data([1,2,3,4,5,7]).enter().append("p");
+
+    opExample.text(
+    		function(d, i ) {
+    			return "d var: " + d + " index: " + i ;
+     		});
+</script>
+</html>

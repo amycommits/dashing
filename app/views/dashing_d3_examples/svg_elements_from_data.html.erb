@@ -1,0 +1,42 @@
+<html>
+<body>
+<h1>Creating SVG Elements from Data </h1>
+<h3>Video 15 </h3>
+<h2></h2>
+circleElements.data();
+<div class="modulusColor"></div>
+</body>
+<script type="text/javascript">
+var svgViewPort= d3.select("body").append("svg").attr("width","500").attr("height","500");
+var myData=[1,2,3,4,5];
+var myColor=["red","purple","green","blue","yellow"]
+var circleSelection = d3.select("body").select("svg").selectAll("circle").data(myData);
+var circleElements = circleSelection.enter().append("circle")
+	.attr("cx",function(i){return i*10;})
+	.attr("cy",function(i){return (i*100)/2;})
+	.attr("r","10")
+	.style("fill",function(i){return myColor[i-1]})
+	;
+
+var modCircle=d3.select("body").select(".modulusColor").append("svg").attr("width","500").attr("height","500")
+				.selectAll("circle").data(myData);
+function cxVal(d,i) {
+	return (i * 100)/5;
+};
+
+function modStyle(d,i){
+	if(i % 2 == 0){
+		return "pink";
+	} else {
+		return "purple"}
+		;
+};
+var modSelection=modCircle.enter().append("circle")
+	.attr("cx",cxVal)
+	.attr("cy","50")
+	.attr("r","10")
+	.style("fill",modStyle);
+
+	
+</script>
+</html>

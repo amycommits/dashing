@@ -1,0 +1,28 @@
+<html>
+<body>
+<h1>Binding DOM to elements</h1>
+<h3> Video 12 </h3>
+<h2>Enter selection Revisited</h2>
+d3.selection.data([]).enter(); append insert select operators, then you can edit <div/>
+
+<h2>Visualization Pattern Revisited</h2>
+<ul>
+	<li>.select()</li>
+	<li>.data()</li>
+	<li>.enter()</li>
+	<li>.append()</li>
+</ul>
+<h2> Append operator revisited</h2>
+<h2>Binding Data to DOM elements </h2>
+var updateSelection = d3.select("body").selectAll("p").data([1,2,3,4,5,6]);
+<div/>
+updateSelection.enter();
+<div/>
+var paragraphElements= updateSelection.enter().append("p");
+</body>
+<script>
+var updateSelection = d3.select("body").selectAll("p").data([1,2,3,4,5,6]);
+var paragraphElements= updateSelection.enter().append("p");
+
+</script>
+</html>

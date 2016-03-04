@@ -1,0 +1,37 @@
+<html>
+<html>
+<h1>D3 Json Basic Shapes</h1>
+<div class="showOrigRects"></div>
+<div class="showRects"></div>
+<div style="visibility: hidden;">
+<%= @rectangle_info.to_json%>
+</div>
+</html>
+<script>
+//d3.select("body").remove("svg");
+function pickColor(i) {
+var colors=["red","yellow","blue","green","purple","pink","gray","orange","brown","cyan"];
+var randColor = <%=Random.rand(10)%>;
+//return randColor
+return colors[i];
+
+}
+var svgContainer = d3.select("body").select(".showRects").append("svg").attr("width","1000").attr("height","10000");
+//var svgRectangles = svgContainer.selectAll("rect").data(rectangles).enter().append("rect");
+var nativeRectangles = [{"x":110,"y":257,"width":256,"height":118},{"x":402,"y":66,"width":201,"height":498}];
+var svgNativeRectangles = svgContainer.selectAll("rect").data(nativeRectangles).enter().append("rect");
+svgNativeRectangles.attr("x", function(d,i){return d.x;})
+					.attr("y", function(d,i){return d.y;})
+					.attr("width", function(d,i){return d.width;})
+					.attr("height", function(d,i){return d.height;});
+
+var svgOrigContainer = d3.select("body").select(".showOrigRects").append("svg").attr("width","1000").attr("height","10000");
+var rectangles = <%=raw  @rectangle_info.to_json%>;
+var svgRectangles = svgOrigContainer.selectAll("rect").data(rectangles).enter().append("rect");
+svgRectangles.attr("x", function(d,i){return d.x;})
+					.attr("y", function(d,i){return d.y;})
+					.attr("width", function(d,i){return d.width;})
+					.attr("height", function(d,i){return d.height;})
+					.style("fill", function(d,i){return d.fill;});
+</script>
+</html>

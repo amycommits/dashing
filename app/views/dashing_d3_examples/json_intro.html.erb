@@ -1,0 +1,39 @@
+<html>
+<body>
+<div>
+<%= @action_info.to_json %>
+</div>
+<h1>Intro to Json in D3</h1>
+<h2>D3 Associative Array Utilities </h2>
+<ul>
+ <li>d3.keys(obj)</li>
+ <li>d3.values(obj)</li>
+ <li>d3.entries(obj)</li>
+</ul>
+<div>d3.keys(margin);</div>
+<div>d3.values(margin);</div>
+<div>d3.entries(margin);</div>
+<div>d3.values(margin)[0];</div>
+<div>appJson</div>
+
+</body>
+<script type="text/javascript">
+//var margin=<%= @action_info.to_json %>
+var margin={"top":20,"right":20,"bottom":30,"left":50};
+var betterMargin= [{"direction":"top","units":"20"},
+					{"direction":"top","units":"20"},
+					{"direction":"top","units":"30"},
+					{"direction":"top","units":"50"}];
+
+var appJson = <%= raw @action_info.to_json %>;
+var paragraphs = d3.select("body").selectAll("p").data(appJson).enter().append("p");
+
+paragraphs.text(function(d,i) {
+
+	return d.total_action;
+}
+	
+	);
+
+</script>
+</html>

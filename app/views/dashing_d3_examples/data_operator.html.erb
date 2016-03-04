@@ -1,0 +1,58 @@
+<html>
+<body>
+<h1>D3 data operator</h1>
+<h3> video 10 </h3>
+	d3.selection.data([values[,key]]); <p/>
+	d3.select(".do_example_1").append("p").data([1]);<p/>
+<div class="do_example_1"></div>
+<h2> an array of data</h2>
+d3.select(".do_example_2").append("p").data([[2,3,4,5,6]]);<p/>
+<div class="do_example_2"></div>
+<h2>JS function</h2>
+<div class="do_example_3"></div>
+<h2>JS Object</h2>
+d3.select(".do_example_4").append("p").data([ superwoman = {"gender":"female", "transportation":"flying"}]);<p/>
+<div class="do_example_4"></div>
+
+<h2>binding multiple values</h2>
+d3.select(".do_example_5").selectAll("p").data([1,2]);<p/>
+The first element in the array is bound to the first p tag's data etc, etc.
+<div class="do_example_5"></div>
+
+<h3>mismatching values and multidimensional arrays</h3>
+If there is an array in the array, the first array will be assigned to the first element etc, etct <p/>
+If there is more data then elements, then not bound <p/>
+<div class="do_example_6"></div>
+<h2>JS anonymous functions </h2>
+<div class="do_example_7"></div>
+<h2>JS objects as an array</h2>
+<div class="do_example_8"></div>
+
+</body>
+<script type="text/javascript">
+d3.select(".do_example_1").append("p").data([1]);	
+d3.select(".do_example_2").append("p").data([[2,3,4,5,6]]);
+d3.select(".do_example_3").append("p").data([ function returnThree() { return 3; } ]);
+d3.select(".do_example_4").append("p").data([ superwoman = {"gender":"female", "transportation":"flying"}]);
+d3.select(".do_example_5").append("p");
+d3.select(".do_example_5").append("p");
+d3.select(".do_example_5").selectAll("p").data([1,2]);
+d3.select(".do_example_6").append("p");
+d3.select(".do_example_6").append("p");
+d3.select(".do_example_6").selectAll("p").data([[1,2,3],[4,5,6],[7,8,9]]);
+
+//var selectClass = d3.select(".do_example_7");
+//var addElement = selectClass.append("p");
+//selectClass.append("p");
+//selectClass.selectAll("p").data([ function() { return 3; }, function() {return 4; },function() {return 5; }]);
+
+d3.select(".do_example_8").append("p");
+d3.select(".do_example_8").append("p");
+/*d3.select(".do_example_8").selectAll("p").data(
+	superwoman= {"gender":"female", "transportation":"flying"}
+	spiderman= {"gender":"male", "transportation":"webs"}
+
+	);
+*/
+/script>
+</html>
