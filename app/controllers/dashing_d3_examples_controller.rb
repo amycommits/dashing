@@ -23,6 +23,32 @@ class DashingD3ExamplesController < ApplicationController
 
   def arrays
   end
+  def adding_dom_elements
+  end
+  def svg_fundamentals
+  end
+  def adding_svg_elements
+  end
+  def data_operator
+  end
+  def javascript_functions
+  end
+  def using_data_bound_to_dom
+  end
+  def using_svg_coordinate_space
+  end
+  def json_intro
+    @action_items = ActionItem.all
+    @projects = Project.all
+    @action_info = ActionItem.all.select(:id, :action_number,:total_action)
+    @dExample = DashingD3Example.all
+  end
+  def json_basic_shapes
+      @action_info = ActionItem.all.select(:id, :accession_number,:action_number,:total_action,:created_at)
+      @rectangle_info = DashingD3Example.select(:x,:y,:width,:height,:id,:fill)
+      @one_rectangle = DashingD3Example.select(:x,:y,:width,:height,:fill)
+
+  end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create

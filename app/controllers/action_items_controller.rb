@@ -75,6 +75,9 @@ class ActionItemsController < ApplicationController
     end
   end
 
+  def d3_start_fiddle
+    @action_info = ActionItem.all.select(:id, :accession_number,:action_number,:total_action,:created_at)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
