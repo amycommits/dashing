@@ -49,6 +49,17 @@ class DashingD3ExamplesController < ApplicationController
       @one_rectangle = DashingD3Example.select(:x,:y,:width,:height,:fill)
 
   end
+  def svg_json_paths
+    @linePaths = DashingD3Example.lineInfo
+  end
+  def dynamic_svg_coordinate_space
+    #@randCoordinares = RandomizeResults.rand_five
+    @linePaths = DashingD3Example.lineInfo
+
+  end
+  def d3_scales
+    @linePaths = DashingD3Example.lineInfo
+end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create

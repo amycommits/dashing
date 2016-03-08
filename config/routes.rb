@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-    root 'action_items#index'
-  #  root 'dashing_d3_examples#index'
+ #   root 'action_items#index'
+    root 'dashing_d3_examples#index'
 
   # Matching the d3 examples in route
     get '/arrays', to: 'dashing_d3_examples#arrays'  
@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     get '/json_intro',to: 'dashing_d3_examples#json_intro'
     get '/d3_start_fiddle',to: 'action_items#d3_start_fiddle'
     get '/json_basic_shapes',to: 'dashing_d3_examples#json_basic_shapes'
+    get '/svg_json_paths',to: 'dashing_d3_examples#svg_json_paths'
+    get '/dynamic_svg_coordinate_space',to: 'dashing_d3_examples#dynamic_svg_coordinate_space'
+    get '/d3_scales',to: 'dashing_d3_examples#d3_scales'
 # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
       get 'all_actions' => 'action_items#all_actions'

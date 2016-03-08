@@ -1,4 +1,7 @@
 class ActionItem < ActiveRecord::Base
+scope :randActionItem, -> { limit(3).order("random()")} 
+
+
   belongs_to :project
   before_create :create_action_number
   after_create :total_update
