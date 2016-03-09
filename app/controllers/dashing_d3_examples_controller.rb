@@ -60,6 +60,12 @@ class DashingD3ExamplesController < ApplicationController
   def d3_scales
     @linePaths = DashingD3Example.lineInfo
 end
+def svg_group_element
+   @linePaths = DashingD3Example.lineInfo
+end
+def svg_text_elements
+   @text_action_info = ActionItem.limit(5).select(:id, :accession_number,:action_number,:total_action,:description)
+end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create
