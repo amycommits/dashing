@@ -1,0 +1,26 @@
+<html>
+
+<body>
+	<h1>JSON Point Paths</h1>
+	<div class="secondLine"></div>
+	<div class="firstLine"></div>
+
+	<div style="visibility: hidden;"> <%=@linePaths.to_json %></div>
+	
+</body>
+<script type="text/javascript">
+	var lineCoordinates= <%= raw @linePaths.to_json %>
+	var lineFunction= d3.svg.line()
+			.x(function(d) {return d.x;})
+			.y(function(d){return d.y;})
+			.interpolate("linear");
+
+svgViewport= d3.select("body").select(".firstLine").append("svg").attr("width","1000").attr("height","1000");
+svgViewport.append("path")
+			.attr("d",lineFunction(lineCoordinates))
+			.attr("stroke","red")
+			.attr("stroke-width","2").style("fill","none");
+svgViewport= d3.select("body").select(".secondLine").append("svg").attr("width","1000").attr("height","1000");
+svgViewport.append("path").datum(lineCoordinates).attr("d",lineFunction).attr("stroke","black").attr("stroke-width",2).style("fill","solid")
+</script>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<body>
+<h1>SVG Group Elements</h1>
+<div class="svgGroup"></div>
+
+</body>
+<script type="text/javascript">
+myData= <%= raw @linePaths.to_json %>
+var svgContainer = d3.select(".svgGroup").append("svg").attr("width","500").attr("height","500");
+var groupSelection = svgContainer.append("g").style("fill","green");
+var trans = 'translate(30,'+20+')';
+transY=-10;
+//var secondGroupSelection = svgContainer.append("g").style("fill","blue").attr("transform",transY);
+var secondGroupSelection = svgContainer.append("g").style("fill","blue").attr("transform",'translate(30,'+transY+')');
+var origCirc = groupSelection.selectAll("circle")
+		.data(myData)
+			.enter()
+		.append("circle")
+			.attr("cx",function(d,i) {return d.x;})
+			.attr("cy",function(d,i) {return d.y;})
+			.attr("r","5");
+var secCirc = secondGroupSelection
+	.selectAll("circle")
+		.data(myData)
+			.enter()
+		.append("circle")
+			.attr("cx",function(d,i) {return d.x+20;})
+			.attr("cy",function(d,i) {return d.y-20;})
+			.attr("r","5");
+var rect = svgContainer.selectAll("rect").data(myData).enter().append("rect")
+			.attr("x", function(d,i){return d.x})
+			.attr("y", function(d,i){return d.y})
+			.attr("width", function(d,i){return d.x+30})
+			.attr("height", function(d,i){return d.y+20})
+			.style("fill","none")
+			.attr("stroke-width","1")
+			.attr("stroke","red")
+			;
+</script>
+</html>

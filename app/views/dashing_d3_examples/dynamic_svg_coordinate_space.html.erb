@@ -1,0 +1,33 @@
+<html>
+<body>
+<h1>let the data tell you how big to make the viewport </h1>
+
+<h1>scale the data to fit the viewport</h1>
+<div id="display_min"></div>
+<div id="display_max"></div>
+<div id="display_extent"></div>
+<div id="svgDivContainer"></div>
+</body>
+<script type="text/javascript">
+var myData=<%= raw @linePaths.to_json %>;
+var minMyData = d3.min(myData, function(d){return d.x;});
+
+d3.select("#display_min").insert("p").attr("text",minMyData);
+
+var maxMyData = d3.max(myData, function(d){return d.y;});
+d3.select("#display_max").insert("p").attr("text",maxMyData);
+
+var extentMyData = d3.extent(myData, function(d){return d.x;});
+d3.select("#display_extent").insert("p").attr("text",extentMyData);
+
+var maxX= d3.max(myData, function(d){return d.x;});
+var maxY= d3.max(myData, function(d){return d.y;});
+
+var svgContainer = d3.select("#svgDivContainer").append("svg").attr("width",maxX).attr("height",maxY)
+var circles = svgContainer.selectAll("circle").data(myData).enter().append("circle");
+var circleAttr = circles.attr("cx", function(d,i) {return d.x;})
+						.attr("cy", function(d,i) {return d.y;})
+						.attr("r","10");
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+<body>
+<ul>
+	<li>Quantitative Scales are for continuous input domains, such as numbers </li>
+	<li>Ordinal Scales are for discrete input domains, such as names or categories </li>
+	<li>Time Scales are for time domains </li>
+</ul>
+<h1>Linear Scale</h1>
+<h2>y = mx + b </h2>
+<h2>d3.scale.linear().domain([#,#]).range([#,#])</h2>
+<div class="showSVG"></div>
+
+</body>
+<script type="text/javascript">
+	var myData=<%= raw @linePaths.to_json %>;
+	var svgContainer= d3.select("body").select(".showSVG").append("svg").attr("width","50").attr("height","50");
+	var scaleUp= d3.scale.linear().domain([0,10]).range([0,100]);
+	var scaleDown= d3.scale.linear().domain([0,100]).range([0,10]);
+	var scaleFlip= d3.scale.linear().domain([0,10]).range([100,0]);
+	var scaleSlide= d3.scale.linear().domain([0,10]).range([100,200]);
+
+	var minDomainX = d3.min(myData, function(d){return d.x;});
+	var minDomainY = d3.min(myData, function(d){return d.y;});
+
+	var maxDomainX = d3.max(myData, function(d){return d.x;});
+	var maxDomainY = d3.max(myData, function(d){return d.y;});
+
+	//use the extent!
+
+	var domainX = d3.extent(myData, function(d){return d.x;});
+	var domainY = d3.extent(myData, function(d){return d.y;});
+
+	var xLine = d3.scale.linear().domain(domainX).range([0,50]);
+	var yLine = d3.scale.linear().domain(domainY).range([0,50]);
+
+	var circle = //d3.select(".showSVG").select("svg")
+	svgContainer.selectAll("circle")
+	     .data(myData)
+			.enter()
+		.append("circle")
+			.attr("cx",function(d,i) {return xLine(d.x);})
+			.attr("cy",function(d,i) {return xLine(d.y);})
+			.attr("r","5");
+
+
+
+</script>
+
+</html>
