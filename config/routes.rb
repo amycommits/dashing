@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     get '/svg_json_paths',to: 'dashing_d3_examples#svg_json_paths'
     get '/dynamic_svg_coordinate_space',to: 'dashing_d3_examples#dynamic_svg_coordinate_space'
     get '/d3_scales',to: 'dashing_d3_examples#d3_scales'
+    get '/svg_group_element',to: 'dashing_d3_examples#svg_group_element'
+    get '/svg_text_elements',to: 'dashing_d3_examples#svg_text_elements'
+    
 # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
       get 'all_actions' => 'action_items#all_actions'
