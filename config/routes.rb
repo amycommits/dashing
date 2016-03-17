@@ -29,7 +29,13 @@ Rails.application.routes.draw do
     get '/d3_scales',to: 'dashing_d3_examples#d3_scales'
     get '/svg_group_element',to: 'dashing_d3_examples#svg_group_element'
     get '/svg_text_elements',to: 'dashing_d3_examples#svg_text_elements'
-    
+    get '/margin_convention',to: 'dashing_d3_examples#margin_convention'
+    get '/dates_and_times',to: 'dashing_d3_examples#dates_and_times'
+    get '/d3_axes',to: 'dashing_d3_examples#d3_axes'
+    get '/axes_manipulation',to: 'dashing_d3_examples#axes_manipulation'
+    get '/scales_for_data',to: 'dashing_d3_examples#scales_for_data'
+    get '/first_half_together',to: 'dashing_d3_examples#first_half_together'
+
 # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
       get 'all_actions' => 'action_items#all_actions'
