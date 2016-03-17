@@ -1,0 +1,27 @@
+<html>
+<body>
+<h1>axes</h1>
+d3.svg.axis()
+<p/>
+d3.select("body").append("svg").attr("width",200).attr("height",200).append("g").call(d3.svg.axis());
+<h2>axis scale</h2>
+
+</body>
+<script type="text/javascript">
+var margin = {top:20,right:20,bottom:20,left:20};
+var myScale = d3.scale.linear().domain([0,10]).range([0,200]);
+var myAxis = d3.svg.axis().scale(myScale);
+
+d3.select("body").append("svg")
+		.attr("width",200+margin.right+margin.left)
+		.attr("height",200+margin.top+margin.bottom)
+	.append("g")
+		.attr("transform", "translate("+margin.left+","+margin.top+")")
+//		.call(d3.svg.axis());
+		.call(myAxis);
+
+
+	
+</script>
+
+</html>

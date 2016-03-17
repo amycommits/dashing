@@ -1,0 +1,52 @@
+<html>
+<body>
+<h1>scales for data</h1>
+</body>
+<script type="text/javascript">
+var myData = <%= raw @text_action_info.to_json %>;
+
+var margin = {top:50,right:50,bottom:50,left:50},
+	width = 300,
+	height = 300;
+//define extents	
+var domainActionNum = d3.extent(myData, function(d){return d.action_number;});
+var domainId = d3.extent(myData, function(d){return d.id;});
+
+//x and y scales
+var myXScale = d3.scale.linear()
+				.domain(domainActionNum)
+				.range ([0,width]);
+var myYScale = d3.scale.linear()
+				.domain(domainId)
+				.range ([0,height]);
+
+//define axis
+var myXAxis = d3.svg.axis().scale(myXScale).orient("top");
+var myYAxis = d3.svg.axis().scale(myYScale).orient("left");
+
+//svg viewport
+var mySVG = d3.select("body").append("svg")
+				.attr("width",width+margin.left+margin.right)
+				.attr("height",height+margin.top+margin.bottom);
+
+//inner space
+var innerSpace = mySVG.append("g")
+					.attr("transform", "translate("+margin.left+","+margin.top+")");
+
+//append axis
+var axisXGroup = innerSpace.append("g").call(myXAxis);
+var axisYGroup = innerSpace.append("g").call(myYAxis);
+
+
+//circle element
+var circle = innerSpace.selectAll("circle").data(myData)
+
+//define circle
+var circleElements = circle.enter().append("circle")
+	.attr("cx",function(d,i){return myXScale(d.action_number+1);})
+	.attr("cy",function(d,i){return myYScale(d.id);})
+	.attr("r","10")
+	//.style("fill",function(d,i){return myColor[i-1]})
+	;
+</script>
+</html>

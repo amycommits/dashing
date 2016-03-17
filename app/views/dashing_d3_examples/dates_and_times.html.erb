@@ -1,0 +1,35 @@
+<html>
+<body>
+<h1>Object literal </h1>
+usually
+<p/>
+var margin = {top:20,right:30,bottom:15,left:50};
+<h2>dates: var dateObject = new Date();</h2>
+}
+<h1>time formatter in D3</h1>
+d3.time.format(specifier)
+<p/>
+var dateToday= new Date();<p/>
+var formatter = d3.time.format("%A");<p/>
+formatter(dateToday);<p/>
+<div class="timeFormed"></div>
+<h2>Time Scales</h2>
++date = number of days since date
+<p/>
+d3.time.scale() <br/>
+.domain([date,date])
+range([number,number])
+	
+</body>
+<script type="text/javascript">
+var dateFuture = new Date(2020,0,12);
+var dateFormatter = d3.time.format("%A");
+var dateFormatMonthName = d3.time.format("%B");
+var dateFormatMonthNum = d3.time.format("%m");
+
+d3.select(".timeFormed").append("p").attr("title",dateFormatter(dateFuture));
+var timeScale1 = d3.time.scale().domain([new Date(2020,0,1), new Date(2020,0,11)]).range([0,10]);
+var timeScale2 = d3.time.scale().domain([new Date(2020,0,1), new Date(2020,0,11)]).range([0,100]);
+	
+</script>
+</html>

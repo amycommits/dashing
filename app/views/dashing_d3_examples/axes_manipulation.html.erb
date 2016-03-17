@@ -1,0 +1,18 @@
+<html>
+<body>
+<h1>d3.svg.axis().orient([orientation])</h1>
+</body>
+<script type="text/javascript">
+var margin = {top:50,right:50,bottom:20,left:10};
+var myScale = d3.scale.linear().domain([0,10]).range([0,200]);
+//var myAxis = d3.svg.axis().scale(myScale).orient("top");
+var myxAxis = d3.svg.axis().scale(myScale).orient("right");
+var myyAxis = d3.svg.axis().scale(myScale).orient("top");
+
+var mySVG = d3.select("body").append("svg").attr("width",250).attr("height",200);
+var myGroup= mySVG.append("g").attr("transform", "translate("+margin.left+","+margin.top+")");
+var axisXgroup = myGroup.append("g").call(myxAxis)
+var axisYgroup = myGroup.append("g").call(myyAxis);
+</script>
+
+</html>
