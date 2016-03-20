@@ -2,6 +2,48 @@
 <body>
 </body>
 <script type="text/javascript">
-	
+var myData = <%= raw @text_action_info.to_json %>;
+
+	var margin = {top:50,right:50,bottom:50,left:50};
+	var svgViewport = d3.select("body")
+				.append("svg")
+				.attr("width",300+margin.left+margin.right)
+				.attr("height",200+margin.top+margin.bottom);
+	var innerSpace = svgViewport.append("g")
+						.attr("transform", "translate("+margin.left+","+margin.top +")");
+
+	var domainActionNum = d3.extent(myData, function(d){return d.action_number;});
+	var domainId = d3.extent(myData, function(d){return d.id;});
+
+
+	var yAxisScale = d3.scale.linear().domain(domainActionNum).range([0,200]);
+	var xAxisScale = d3.scale.linear().domain(domainId).range([0,300]);
+
+	var myXaxis = d3.svg.axis().scale(xAxisScale).orient("top");
+	var myYaxis = d3.svg.axis().scale(yAxisScale).orient("left");
+
+	var axisXgroup=innerSpace.append("g").call(myXaxis);
+	var axisYgroup = innerSpace.append("g").call(myYaxis);
+
+	var circles = innerSpace.append("g")
+					.selectAll("circle")
+					.data(myData)
+					.enter()
+					.append("circle");
+	var circleAttributes = circles
+							.attr("cx",function(d,i){return yAxisScale(d.action_number);})
+							.attr("cy",function(d,i){return xAxisScale(d.id);})
+							.attr("r","10");
+	var text = innerSpace
+					.append("g")
+					.selectAll("text")
+					.data(myData)
+					.enter()
+					.append("text");
+	var textAttributes = text
+							.attr("x",function(d,i){return yAxisScale(d.action_number)+5;})
+							.attr("y",function(d,i){return xAxisScale(d.id)+1;})
+							.text(function(d,i){return d.description;})
+							.style("fill","pink");
 </script>
 </html>

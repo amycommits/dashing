@@ -77,6 +77,9 @@ end
 def scales_for_data
      @text_action_info = ActionItem.limit(5).select(:id, :accession_number,:action_number,:total_action,:description)
 end
+def first_half_together
+  @text_action_info = ActionItem.limit(5).order("random()").select(:id, :accession_number,:action_number,:total_action,:description)
+end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create
