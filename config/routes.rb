@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     get '/axes_manipulation',to: 'dashing_d3_examples#axes_manipulation'
     get '/scales_for_data',to: 'dashing_d3_examples#scales_for_data'
     get '/first_half_together',to: 'dashing_d3_examples#first_half_together'
+     get '/basic_line_chart',to: 'dashing_d3_examples#basic_line_chart'
 
 # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -80,6 +80,9 @@ end
 def first_half_together
   @text_action_info = ActionItem.limit(5).order("random()").select(:id, :accession_number,:action_number,:total_action,:description)
 end
+def basic_line_chart
+  @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
+end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create
