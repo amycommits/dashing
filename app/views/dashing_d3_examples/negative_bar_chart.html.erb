@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>Negative Value Bar Chart</title>
+	<%= stylesheet_link_tag("basic_bar_chart") %>
+</head>
+<body>
+</body>
+<style>
+	.bar.positive {
+		fill:steelblue;
+	}
+	.bar.negative {
+		fill: brown;
+	}
+	.axis text {
+		font: 10px sans-serif;
+	}
+	.axis line {
+		fill: none;
+		stroke: #000;
+		Shape-rendering: crispEdges;
+	}
+</style>
+<script type="text/javascript">
+	var myData = <%= raw @linePaths.to_json %>;
+	var dashingData = [-15,-20,-22,-18,2,6,-26,-18];
+	var margin = {top: 30, right: 10, bottom: 10, left: 10}, 
+	width= 920+margin.left+margin.right,
+	height = 460+margin.top+margin.bottom;
+
+	//absolute max
+
+	var x0 = Math.max(-d3.min(dashingData),d3.max(dashingData));
+
+	var x = d3.scale.linear().domain([-x0,x0]).range([0,width]).nice();
+	var y = d3.scale.ordinal().domain(d3.range(dashingData.length)).rangeRoundBands([0,height],.2);
+
+	var xAxis = d3.svg.axis().scale(x).orient("top");
+	var svg = d3.select("body").append("svg").attr("width",width).attr("height",height).append("g").attr("transform","translate("+margin.left+","+margin.top+")");
+
+	svg.selectAll(".bar")
+		.data(dashingData)
+		.enter().append("rect")
+		.attr("class",function(d) {return d < 0 ? "bar negative" : "bar positive";})
+		.attr("x",function(d){return x(Math.min(0,d));})
+		.attr("y",function(d,i){return y(i);})
+		.attr("width",function(d){return Math.abs(x(d) - x(0));})
+		.attr("height",y.rangeBand());
+	svg.append("g")
+		.attr("class","y axis")
+		.append("line")
+			.attr("x1",x(0))
+			.attr("x2",x(0))
+			.attr("y1",0)
+			.attr("y2",height)
+
+</script>
+</html>

@@ -1,5 +1,6 @@
 == README
 
+ActionItem.all.map(&:project).map(&:title)
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -26,3 +27,27 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+helper - communication between controller (route) and view
+concern == classymodule - permissions
+
+http://codepen.io/kevinpfromnm/pen/QNgyoQ
+
+<form>
+  <div class="group">
+    <input type="radio" name="question1" value="yes" checked>Yes<br>
+    <input type="radio" name="question1" value="no">No
+    <div class="details">
+      Give more details
+    </div>
+  </div>
+</form> 
+
+.details { display: none }
+input[value='no']:checked ~ .details {
+  display: block;
+}
+
+
+https://css-tricks.com/examples/ShapesOfCSS/a

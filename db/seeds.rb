@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 Project.destroy_all
 ActionItem.destroy_all
 DashingD3Example.destroy_all
+
 
 10.times do |i|
 	Project.create!(

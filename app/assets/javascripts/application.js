@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require d3
 //= require_tree .
-//= require svg_example1.js
+

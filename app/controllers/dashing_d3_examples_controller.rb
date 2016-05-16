@@ -83,6 +83,17 @@ end
 def basic_line_chart
   @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
 end
+def basic_bar_chart
+  @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
+end
+def negative_bar_chart
+  @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
+end
+
+
+def basic_area_chart
+  @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
+end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create
