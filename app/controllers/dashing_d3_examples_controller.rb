@@ -94,6 +94,9 @@ end
 def basic_area_chart
   @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
 end
+def basic_grouped_bar_chart
+  @linePaths = DashingD3Example.select(:id,:x,:y,:created_at,:title);
+end
   # POST /dashing_d3_examples
   # POST /dashing_d3_examples.json
   def create

@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     get '/basic_bar_chart',to: 'dashing_d3_examples#basic_bar_chart'
     get '/negative_bar_chart',to: 'dashing_d3_examples#negative_bar_chart'
     get '/basic_area_chart',to: 'dashing_d3_examples#basic_area_chart' 
-    
+    get '/basic_grouped_bar_chart', to: 'dashing_d3_examples#basic_grouped_bar_chart'
      
 
 # Example of regular route:
